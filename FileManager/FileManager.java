@@ -21,11 +21,20 @@ public class FileManager {
         return sb.toString().trim();  // Return the text and remove last line break.
     }
 
-    // Delte a file.
+    // Delete a file.
     public static void deleteFile(String fileName) {
         File file = new File(fileName);
-        if (file.exists()) {  // Check if the file exists,
-            file.delete();  // then delete it.
+
+        if (file.exists()) {  // Check if the file exists.
+            boolean deleted = file.delete();  // Try to delete and store the result.
+
+            if (deleted) {
+                System.out.println("File deleted successfully: " + fileName);
+            } else {
+                System.out.println("Failed to delete file: " + fileName);
+            }
+        } else {
+            System.out.println("File not found: " + fileName);
         }
     }
 }

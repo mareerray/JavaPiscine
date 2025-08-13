@@ -2,12 +2,12 @@ import java.io.*;
 
 public class FileSearch {
     public static String searchFile(String fileName) {
-        // Start from the "document" folder at the root.
+        // Start from the "documents" folder at the root.
         File rootFolder = new File("documents");
 
         // Start searching.
-        String result = searchInFolder(rootFolder, fileName);
-        return result;
+        return searchInFolder(rootFolder, fileName);
+
     }
 
     // Helper function to search inside a folder (and its subfolders)
