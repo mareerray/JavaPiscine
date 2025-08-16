@@ -104,3 +104,4 @@ public class CelestialObject {
         return result;
     }
 }
+

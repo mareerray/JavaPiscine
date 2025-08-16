@@ -7,23 +7,20 @@ public class Star extends CelestialObject {
 
     public Star() {
         super(); // calls CelestialObject default constructor
-                // because Star inherits from CelestialObject
+        // because Star inherits from CelestialObject
         this.magnitude = 0.0;
     }
 
-    public Star (String name, double x, double y, double z, double magnitude) {
-        super(name, x, y, z); // calls CelestialObject constructor with arguments
+    public Star (String name, double x, double y, double z, double magnitude, int mass) {
+        super(name, x, y, z, mass); // calls CelestialObject constructor with arguments
         this.magnitude = magnitude;
     }
 
     public double getMagnitude() {
-
         return magnitude;
-
     }
 
     public void setMagnitude(double magnitude) {
-
         this.magnitude = magnitude;
     }
 
@@ -39,7 +36,11 @@ public class Star extends CelestialObject {
     public boolean equals(Object obj) {
         // check if other object is a Star
         if (this == obj) return true;
-        if (obj == null || getClass() != obj.getClass()) return false;
+        if (!(obj instanceof Star)) return false;
+
+        // Check CelestialObject fields
+        // call super.equals(obj) to compare the inherited fields
+        if (!super.equals(obj)) return false;
 
         // compare only magnitude
         Star star = (Star) obj;
@@ -49,7 +50,11 @@ public class Star extends CelestialObject {
     // Override hashcode
     @Override
     public int hashCode() {
-        return Double.hashCode(magnitude);
+        return 31 * super.hashCode() + Double.hashCode(magnitude);
+        // this line multiplies the parent’s hash code by 31
+        // (a prime number commonly used in Java for hash codes
+        // to help spread out the values and reduce collisions).
+        // Then it adds the hash code of magnitude.
     }
 }
 
