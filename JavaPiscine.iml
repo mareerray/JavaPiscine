@@ -25,8 +25,6 @@
       <excludeFolder url="file://$MODULE_DIR$/Capitalize/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/Cat/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/CatInFile/src/build" />
-      <excludeFolder url="file://$MODULE_DIR$/CelestialObject/src/build" />
-      <excludeFolder url="file://$MODULE_DIR$/CelestialObject1/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/Chifoumi/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/CleanExtract/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/ComputeArray/src/build" />
@@ -43,6 +41,8 @@
       <excludeFolder url="file://$MODULE_DIR$/StringContains/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/StringLength/src/build" />
       <excludeFolder url="file://$MODULE_DIR$/StringReplace/src/build" />
+      <excludeFolder url="file://$MODULE_DIR$/StarConstructors/src/build" />
+      <excludeFolder url="file://$MODULE_DIR$/StarProperties/src/build" />
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
