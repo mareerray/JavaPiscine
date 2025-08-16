@@ -10,6 +10,7 @@ public class ExerciseRunner {
         System.out.println(earth.equals(celestialObject));
 
         System.out.println(earth.hashCode());
+        System.out.println(earth1.hashCode());
         System.out.println(celestialObject.hashCode());
     }
 }
