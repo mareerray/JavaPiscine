@@ -21,7 +21,7 @@ public class Capitalize {
 
             String[] words = line.split("\\s+"); // Split on any whitespace.
 
-            // Capitalize each word.
+            /* Capitalize each word. */
             for (int i = 0; i < words.length; i++) {
                 String word = words[i];
                 if (!word.isEmpty()) {
