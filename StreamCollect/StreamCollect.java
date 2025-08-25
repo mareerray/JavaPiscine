@@ -1,13 +1,44 @@
-import java.util.Map;
-import java.util.HashMap;
-import java.util.List;
-import java.util.ArrayList;
-import java.util.stream.Stream;
-import java.util.Optional;
-import java.util.stream.Collectors;
-import java.util.Collections;
+import java.util.*;
+import java.util.stream.*;
 
 public class StreamCollect {
+    //-------------------------------------------------------------------------
+    // maps the first letter (to upper case) to a list of Strings begining with the given letter.
+    public static Map<Character, List<String>> mapByFirstLetter(Stream<String> s) {
+        return s
+                .filter(word -> word != null && !word.trim().isEmpty())
+                .collect(Collectors.groupingBy(
+                        word -> Character.toUpperCase(word.charAt(0))
+                ));
+        // The filter removes unwanted words.
+        // groupingBy creates the map and handles making lists and adding elements.
+    }
+    //-------------------------------------------------------------------------
+    // groups the integers by modulo 4 and returns a map associating each module 4 value
+    // to the max integer in each group.
+    public static Map<Integer, Optional<Integer>> getMaxByModulo4(Stream<Integer> s) {
+        return s
+                .filter(Objects::nonNull)
+                .collect(Collectors.groupingBy(
+                        num -> num % 4,
+                        Collectors.maxBy(Comparator.naturalOrder())
+                ));
+        // The classifier for groupingBy is num -> num % 4.
+        // The maxBy collector finds the maximum value per group.
+    }
+    //-------------------------------------------------------------------------
+    // joins the alphabetically sorted Strings with a ' # ' between each.
+    // The resulting String starts with a '{' and ends with a '}'.
+    public static String orderAndConcatWithSharp(Stream<String> s) {
+        return s
+                .sorted() // Sort alphabetically
+                .collect(Collectors.joining(" # ", "{", "}")); // Join, add braces (delimeter, prefix, suffix)
+        // this collector is a special tool that turns a stream into one final string,
+        // with any separator or wrapper.
+    }
+}
+
+/* ----------------Alternatives------------
     public static Map<Character, List<String>> mapByFirstLetter(Stream<String> s) {
         // Create an empty map to store results:
         // key = uppercase letter, value = list of matching words
@@ -64,12 +95,4 @@ public class StreamCollect {
         });
         return resultsMap; // Return the map
     }
-
-    public static String orderAndConcatWithSharp(Stream<String> s) {
-        return s
-                .sorted() // Sort alphabetically
-                .collect(Collectors.joining(" # ", "{", "}")); // Join, add braces (delimeter, prefix, suffix)
-        // this collector is a special tool that turns a stream into one final string,
-        // with any separator or wrapper.
-    }
-}
+ */
